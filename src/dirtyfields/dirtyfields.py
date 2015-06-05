@@ -33,7 +33,7 @@ class DirtyFieldsMixin(object):
 
         for key, value in new_state.items():
             original_value = self._original_state.get(key, None)
-            if value != original_value or original_value is None:
+            if value != original_value or (original_value is None and value):
                 all_modify_field[key] = original_value
 
         return all_modify_field
